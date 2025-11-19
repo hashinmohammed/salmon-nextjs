@@ -167,23 +167,17 @@ function Hero() {
                 <div className="w-full">
                   <h2
                     className="mx-auto mb-1 max-w-3xl text-[1.488rem] font-medium leading-snug text-white/85 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] md:text-[1.98rem] lg:text-[2.472rem] xl:text-[2.976rem]"
-                    data-aos="fade-right"
-                    data-aos-delay="80"
                   >
                     {slide.titleTop}
                   </h2>
                   <h1
                     className="mx-auto mb-4 max-w-2xl text-[1.152rem] font-medium text-white/85 drop-shadow-[0_3px_8px_rgba(0,0,0,0.32)] leading-snug md:text-[1.32rem] lg:text-[1.488rem] xl:text-[1.656rem]"
-                    data-aos="fade-left"
-                    data-aos-delay="160"
                   >
                     {slide.titleBottom}
                   </h1>
                   {slide.cta ? (
                     <p
                       className="mx-auto mb-3 max-w-2xl text-[0.83rem] text-white/90 italic md:text-[0.96rem]"
-                      data-aos="fade-up"
-                      data-aos-delay="240"
                     >
                       {slide.cta}
                     </p>
@@ -203,8 +197,6 @@ function Hero() {
 
       <div
         className="left-1/2 z-30 mx-auto mt-6 w-[92%] max-w-[980px] md:absolute md:bottom-0 md:left-1/2 md:mt-0 md:-translate-x-1/2 md:translate-y-1/2"
-        data-aos="fade-up"
-        data-aos-delay="120"
       >
         <TrustPanel />
       </div>
