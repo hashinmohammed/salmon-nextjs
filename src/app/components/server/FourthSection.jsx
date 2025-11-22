@@ -13,15 +13,15 @@ function FourthSection() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
             {/* Image Left */}
-            <div className="order-1 md:order-1 flex items-end h-full pb-0">
+            <div className="order-1 md:order-1 flex items-end h-full pb-0 overflow-visible w-full">
               <Image
                 src={doctorsImage}
                 alt="Doctors visual"
                 width={1940}
                 height={1440}
                 priority
-                sizes="90vw"
-                className="w-9/10 h-[54vh] md:h-[72vh] lg:h-[86.4vh] object-cover rounded-lg"
+                sizes="100vw"
+                className="w-full h-auto object-contain rounded-lg"
                 style={{objectPosition: 'bottom'}}
               />
             </div>
