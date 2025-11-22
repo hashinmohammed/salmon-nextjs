@@ -1,28 +1,27 @@
 "use client";
-import HeroPanel from "./HeroPanel";
-import PlayPauseIcon from "./PlayPauseIcon";
-import React, { useState, useRef } from "react";
-// Using Tailwind CSS utility classes instead of a separate CSS file
 
-// Swiper imports (ensure `swiper` is installed: npm install swiper)
+import React, { useState, useRef } from "react";
+import HeroPanel from "./HeroPanel"; 
+import PlayPauseIcon from "./PlayPauseIcon"; 
+
+// Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-// Use public videos for Next.js
+
+// Video assets
 const v1 = "/videos/v1.mp4";
 const v2 = "/videos/v2.mp4";
 const v3 = "/videos/v3.mp4";
 const v4 = "/videos/v4.mp4";
 const v5 = "/videos/v5.mp4";
 
-
 const slides = [
   {
     titleTop: "Essential Equipment for Exceptional Care",
-    titleBottom:
-      "Delivering Quality, Safety, and Efficiency to Hospitals Worldwide",
+    titleBottom: "Delivering Quality, Safety, and Efficiency to Hospitals Worldwide",
     cta: "Your partner for a healthier tomorrow",
     video: v2,
   },
@@ -46,8 +45,7 @@ const slides = [
   },
   {
     titleTop: "First Aid & Emergency Readiness",
-    titleBottom:
-      "Essential first-aid kits, training, and supplies for immediate response",
+    titleBottom: "Essential first-aid kits, training, and supplies for immediate response",
     cta: "Prepared when it matters most",
     video: v5,
   },
@@ -60,10 +58,11 @@ export default function Hero() {
   const swiperRef = useRef(null);
   const videoRefs = useRef([]);
 
-
   const handleSlideChange = (sw) => {
     const idx = sw.realIndex ?? sw.activeIndex;
     setActiveIndex(idx);
+    
+    // Manage Video Playback: Play active, pause others
     videoRefs.current.forEach((vid, i) => {
       if (!vid) return;
       try {
@@ -83,11 +82,7 @@ export default function Hero() {
   const pauseAllVideos = () => {
     videoRefs.current.forEach((vid) => {
       if (!vid) return;
-      try {
-        vid.pause();
-      } catch {
-        /* ignore playback errors */
-      }
+      try { vid.pause(); } catch {}
     });
   };
 
@@ -98,9 +93,7 @@ export default function Hero() {
       vid.currentTime = 0;
       const p = vid.play();
       if (p && p.catch) p.catch(() => {});
-    } catch {
-      /* ignore playback errors */
-    }
+    } catch {}
   };
 
   const togglePlaying = () => {
@@ -119,8 +112,7 @@ export default function Hero() {
     <section
       className="relative"
       style={{
-        minHeight:
-          "var(--hero-height, calc(100vh - var(--header-height, 64px)))",
+        minHeight: "var(--hero-height, calc(100vh - var(--header-height, 64px)))",
       }}
     >
       <Swiper
@@ -130,7 +122,8 @@ export default function Hero() {
         autoplay={{ delay: 6000, disableOnInteraction: false }}
         onSwiper={(sw) => (swiperRef.current = sw)}
         onSlideChange={handleSlideChange}
-        onAutoplayTimeLeft={(sw, time, p) => setProgress(p)}
+        // FIX: Invert 'p' (which counts down) to create a progress bar that fills up (0 -> 1)
+        onAutoplayTimeLeft={(sw, time, p) => setProgress(1 - p)}
         loop
         className="hero-swiper"
       >
@@ -139,10 +132,10 @@ export default function Hero() {
             <div
               className="relative flex items-center bg-black bg-center"
               style={{
-                height:
-                  "var(--hero-height, calc(100vh - var(--header-height, 64px)))",
+                height: "var(--hero-height, calc(100vh - var(--header-height, 64px)))",
               }}
             >
+              {/* Background Video */}
               <div className="hero-video-wrapper" aria-hidden="true">
                 <video
                   ref={(el) => (videoRefs.current[idx] = el)}
@@ -158,6 +151,7 @@ export default function Hero() {
                 />
               </div>
 
+              {/* Gradient Overlay */}
               <div
                 className="absolute inset-0"
                 style={{
@@ -168,11 +162,12 @@ export default function Hero() {
                 aria-hidden="true"
               />
 
-              <div className="absolute left-24 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-6 z-20">
+              {/* Controls (Left Side - Desktop Only) */}
+              <div className="absolute left-10 lg:left-24 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-6 z-20">
                 <button
                   aria-label={playing ? "Pause autoplay" : "Start autoplay"}
                   onClick={togglePlaying}
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white/90"
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-white/90 outline-none hover:scale-105 transition-transform"
                 >
                   <PlayPauseIcon playing={playing} progress={progress} />
                 </button>
@@ -183,41 +178,33 @@ export default function Hero() {
                       key={i}
                       aria-label={`Go to slide ${i + 1}`}
                       onClick={() => swiperRef.current?.slideToLoop(i)}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                        i === activeIndex ? "bg-white scale-125" : "bg-white/40"
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        i === activeIndex ? "bg-white scale-125 ring-2 ring-white/30" : "bg-white/40 hover:bg-white/70"
                       }`}
                     />
                   ))}
                 </div>
               </div>
 
+              {/* Text Content */}
               <div className="relative z-10 w-full max-w-4xl mx-auto px-6 py-6 md:py-10 flex flex-col justify-center items-center text-center h-full">
                 <div className="w-full">
-                  <h2
-                    className="text-[1.488rem] md:text-[1.98rem] lg:text-[2.472rem] xl:text-[2.976rem] font-semibold text-white/85 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] leading-snug mb-1 max-w-3xl mx-auto"
-                  >
+                  <h2 className="text-[1.488rem] md:text-[1.98rem] lg:text-[2.472rem] xl:text-[2.976rem] font-semibold text-white/85 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] leading-snug mb-1 max-w-3xl mx-auto">
                     {s.titleTop}
                   </h2>
-                  <h1
-                    className="text-[0.92rem] md:text-[1.06rem] lg:text-[1.19rem] xl:text-[1.32rem] font-sm text-white/85 drop-shadow-[0_3px_8px_rgba(0,0,0,0.32)] leading-snug mb-4 max-w-2xl mx-auto"
-                  >
+                  <h1 className="text-[0.92rem] md:text-[1.06rem] lg:text-[1.19rem] xl:text-[1.32rem] font-sm text-white/85 drop-shadow-[0_3px_8px_rgba(0,0,0,0.32)] leading-snug mb-4 max-w-2xl mx-auto">
                     {s.titleBottom}
                   </h1>
-                  {s.cta ? (
-                    <p
-                      className="text-[0.83rem] md:text-[0.96rem] text-white/90 max-w-2xl italic mb-3 mx-auto"
-                    >
+                  {s.cta && (
+                    <p className="text-[0.83rem] md:text-[0.96rem] text-white/90 max-w-2xl italic mb-3 mx-auto">
                       {s.cta}
                     </p>
-                  ) : null}
-                    {s.cta ? (
-                      <>
-                        <svg width="100" height="10" viewBox="0 0 237 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-3 mx-auto" style={{display: 'block', maxWidth: '100%'}}>
-                          <path d="M5.50098 15.5C80.6343 2.16667 155.768 2.16667 230.901 15.5" stroke="#F95B1C" strokeWidth="11" strokeLinecap="round" />
-                        </svg>
-                      </>
-                    ) : null}
-
+                  )}
+                  {s.cta && (
+                    <svg width="100" height="10" viewBox="0 0 237 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-3 mx-auto block max-w-full">
+                      <path d="M5.50098 15.5C80.6343 2.16667 155.768 2.16667 230.901 15.5" stroke="#F95B1C" strokeWidth="11" strokeLinecap="round" />
+                    </svg>
+                  )}
                 </div>
               </div>
             </div>
@@ -225,7 +212,7 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* Static panel moved to server component */}
+      {/* Floating Info Panel */}
       <HeroPanel />
     </section>
   );
