@@ -9,7 +9,7 @@ function SecondSection() {
       className="relative w-full bg-cover bg-bottom bg-no-repeat"
       style={{ backgroundImage: `url(${firstBg.src})` }}
     >
-      <section className="relative z-10 pt-12 pb-0 md:pt-20 md:pb-0 lg:flex lg:min-h-[90vh] lg:items-center">
+      <section className="relative z-10 pt-12 pb-0 md:pt-20 md:pb-0 lg:flex min-h-[70vh] md:min-h-[80vh] lg:min-h-screen lg:items-center">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
             <div className="prose prose-invert max-w-none text-left order-0 md:order-0">
@@ -42,15 +42,15 @@ function SecondSection() {
                 <button className="px-6 cursor-pointer py-3 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary-dark transition">Connect Us</button>
               </div>
             </div>
-            <div className="order-1 md:order-1 flex items-end h-full">
+            <div className="order-1 md:order-1 flex items-end h-full pb-0">
               <Image
                 src={heroImage}
                 alt="Company visual"
-                width={1600}
-                height={1200}
+                width={1920}
+                height={1440}
                 priority
                 sizes="100vw"
-                className="w-full h-[60vh] md:h-[80vh] object-cover rounded-lg"
+                className="w-full h-[60vh] md:h-[80vh] lg:h-[96vh] object-cover rounded-lg"
                 style={{objectPosition: 'bottom'}}
               />
             </div>
