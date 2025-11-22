@@ -1,5 +1,6 @@
 /* @import "tailwindcss/preflight";
 @tailwind utilities; */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800&display=swap");
 
 @import "tailwindcss";
@@ -8,7 +9,7 @@
 @layer base {
   html,
   body {
-    font-family: "Rubik", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    font-family: "Poppins", "Rubik", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
       "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   }
 }
@@ -41,6 +42,9 @@ html {
 }
 
 @layer utilities {
+    .primary-gradient {
+      background: linear-gradient(180deg, rgba(14, 129, 155, 0.129) 0%, rgba(0, 67, 82, 0.477) 100%);
+    }
   .bg-primary {
     background-color: var(--color-primary);
   }

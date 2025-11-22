@@ -194,12 +194,12 @@ export default function Hero() {
               <div className="relative z-10 w-full max-w-4xl mx-auto px-6 py-6 md:py-10 flex flex-col justify-center items-center text-center h-full">
                 <div className="w-full">
                   <h2
-                    className="text-[1.488rem] md:text-[1.98rem] lg:text-[2.472rem] xl:text-[2.976rem] font-medium text-white/85 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] leading-snug mb-1 max-w-3xl mx-auto"
+                    className="text-[1.488rem] md:text-[1.98rem] lg:text-[2.472rem] xl:text-[2.976rem] font-semibold text-white/85 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] leading-snug mb-1 max-w-3xl mx-auto"
                   >
                     {s.titleTop}
                   </h2>
                   <h1
-                    className="text-[1.152rem] md:text-[1.32rem] lg:text-[1.488rem] xl:text-[1.656rem] font-sm text-white/85 drop-shadow-[0_3px_8px_rgba(0,0,0,0.32)] leading-snug mb-4 max-w-2xl mx-auto"
+                    className="text-[0.92rem] md:text-[1.06rem] lg:text-[1.19rem] xl:text-[1.32rem] font-sm text-white/85 drop-shadow-[0_3px_8px_rgba(0,0,0,0.32)] leading-snug mb-4 max-w-2xl mx-auto"
                   >
                     {s.titleBottom}
                   </h1>
@@ -210,12 +210,13 @@ export default function Hero() {
                       {s.cta}
                     </p>
                   ) : null}
-                  {s.cta ? (
-                    <div
-                      className="mt-3 w-24 h-0 mx-auto border-b-2"
-                      style={{ borderBottomColor: "var(--color-secondary)" }}
-                    />
-                  ) : null}
+                    {s.cta ? (
+                      <>
+                        <svg width="100" height="10" viewBox="0 0 237 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-3 mx-auto" style={{display: 'block', maxWidth: '100%'}}>
+                          <path d="M5.50098 15.5C80.6343 2.16667 155.768 2.16667 230.901 15.5" stroke="#F95B1C" strokeWidth="11" strokeLinecap="round" />
+                        </svg>
+                      </>
+                    ) : null}
 
                 </div>
               </div>
