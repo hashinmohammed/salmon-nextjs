@@ -25,7 +25,7 @@ function ThirdSection() {
       style={{
         backgroundImage: `url(${secondBg.src})`,
         // Ensures the background itself follows the requested height
-        minHeight: "80vh",
+        minHeight: "90vh",
       }}
     >
       {/* 1. Changed min-h-screen to min-h-[80vh].
