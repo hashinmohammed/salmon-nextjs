@@ -14,20 +14,25 @@ function EighthSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Content Left (Mobile: Bottom - order-2) */}
-            <div className="prose prose-invert max-w-none text-left order-2 lg:order-1 pb-12 lg:pb-0">
-              <h2 className="mb-6 text-3xl md:text-4xl leading-tight">
-                <span className="block text-secondary font-bold text-3xl md:text-[2.5rem] leading-tight">
+            <div
+              className="order-2 lg:order-1 prose prose-invert max-w-none
+                text-center lg:text-left
+                flex flex-col items-center lg:items-start
+                pb-12 lg:pb-0"
+            >
+              <h2 className="mb-6 text-2xl md:text-4xl leading-tight">
+                <span className="block text-secondary font-bold text-2xl md:text-[2.5rem] leading-tight">
                   Uncompromising Safety
                 </span>
-                <span className="block text-black font-extrabold text-3xl md:text-[2.5rem] leading-tight">
+                <span className="block text-black font-extrabold text-2xl md:text-[2.5rem] leading-tight">
                   For Every Workspace
                 </span>
               </h2>
-              <p className="mb-8 text-base text-gray-600 leading-relaxed">
+              <p className="mb-8 text-sm md:text-base text-gray-600 leading-relaxed max-w-[32rem]">
                 Salmon Medic goes beyond standard healthcare to safeguard your professional environment. We provide a comprehensive range of industrial safety materials and regulatory-compliant first aid solutions tailored for modern workspaces. From essential protective gear to fully stocked emergency response kits, we ensure your team is prepared for any situation, prioritizing employee well-being and operational continuity.
               </p>
 
-              <div className="flex justify-start">
+              <div className="flex justify-center lg:justify-start">
                 <button className="px-8 py-3 rounded-lg bg-primary text-white font-semibold shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all transform hover:-translate-y-0.5 duration-200">
                   Connect Us
                 </button>

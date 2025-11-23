@@ -59,7 +59,7 @@ export default function FAQ() {
             {/* CONTENT SECTION - right on desktop, top on mobile */}
             <div className="prose prose-invert order-1 max-w-none pb-8 text-left text-white lg:order-2 lg:pb-20">
               <div className="flex flex-col items-center">
-                <h2 className="mb-2 text-center text-3xl font-semibold text-white md:text-4xl">
+                <h2 className="mb-2 text-center text-2xl font-semibold text-white md:text-4xl">
                   FAQs
                 </h2>
                 <svg
@@ -95,7 +95,7 @@ export default function FAQ() {
                     >
                       <button
                         id={questionId}
-                        className="group flex w-full cursor-pointer items-center justify-between text-left text-base font-normal focus:outline-none"
+                        className="group flex w-full cursor-pointer items-center justify-between text-left text-sm md:text-base font-normal focus:outline-none"
                         aria-expanded={isOpen}
                         aria-controls={answerId}
                         onClick={() => setOpenIdx(isOpen ? null : idx)}
@@ -109,7 +109,7 @@ export default function FAQ() {
                       {isOpen && (
                         <p
                           id={answerId}
-                          className="mt-2 text-base text-white/80"
+                          className="mt-2 text-sm md:text-base text-white/80"
                           role="region"
                           aria-labelledby={questionId}
                         >

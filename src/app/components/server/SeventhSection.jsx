@@ -36,22 +36,27 @@ function SeventhSection() {
             {/* --- CONTENT SECTION (Now Right on Desktop) --- */}
             {/* 1. Changed lg:order-1 to lg:order-2 (Second on desktop) 
             */}
-           <div className="prose prose-invert max-w-none text-left order-1 lg:order-2 text-white pb-8 lg:pb-20">
-              <h2 className="mb-4 text-3xl md:text-4xl leading-tight text-white">
-                <span className="block font-semibold text-3xl md:text-[2.5rem] text-white leading-tight">
+            <div
+              className="order-1 lg:order-2 prose prose-invert max-w-none
+                text-center lg:text-left
+                flex flex-col items-center lg:items-start
+                text-white pb-8 lg:pb-20"
+            >
+              <h2 className="mb-4 text-2xl md:text-4xl leading-tight text-white">
+                <span className="block font-semibold text-2xl md:text-[2.5rem] text-white leading-tight">
                   Complete Veterinary Equipment
                 </span>
-                <span className="block font-semibold text-3xl md:text-[2.5rem] text-white leading-tight">
+                <span className="block font-semibold text-2xl md:text-[2.5rem] text-white leading-tight">
                   & Integrated Solutions
                 </span>
               </h2>
               <div className="mb-6">
                 {/* Directly using stroke.svg markup */}
-                <svg width="100" height="10" viewBox="0 0 237 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
+                <svg width="100" height="10" viewBox="0 0 237 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="block mx-auto lg:mx-0">
                   <path d="M5.50098 15.5C80.6343 2.16667 155.768 2.16667 230.901 15.5" stroke="#F95B1C" strokeWidth="11" strokeLinecap="round" />
                 </svg>
               </div>
-              <p className="mb-8 text-base text-white leading-relaxed opacity-90">
+              <p className="mb-8 text-sm md:text-base text-white leading-relaxed opacity-90 max-w-[32rem]">
                 Salmon Medical Solutions is your dedicated partner in animal healthcare, 
                 delivering a comprehensive range of equipment tailored specifically for 
                 veterinary departments. From advanced surgical units and diagnostic 
@@ -60,7 +65,7 @@ function SeventhSection() {
                 with the tools required to deliver superior care, ensuring efficiency, 
                 safety, and compassion in every treatment.
               </p>
-              <div className="flex justify-start">
+              <div className="flex justify-center lg:justify-start">
                 <button className="px-8 py-3 rounded-lg bg-secondary text-white font-semibold shadow-lg  hover:shadow-xl transition-all transform hover:-translate-y-0.5 duration-200">
                   Contact Us
                 </button>

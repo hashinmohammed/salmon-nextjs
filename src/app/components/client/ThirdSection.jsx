@@ -21,11 +21,9 @@ const cards = [
 function ThirdSection() {
   return (
     <div
-      className="relative w-full bg-cover bg-top bg-no-repeat overflow-hidden"
+      className="relative w-full bg-cover bg-top bg-no-repeat overflow-hidden min-h-[50vh] md:min-h-[90vh]"
       style={{
         backgroundImage: `url(${secondBg.src})`,
-        // Ensures the background itself follows the requested height
-        minHeight: "90vh",
       }}
     >
       {/* 1. Changed min-h-screen to min-h-[80vh].
@@ -34,13 +32,13 @@ function ThirdSection() {
       */}
       <section className="relative z-10 flex flex-col justify-center items-center min-h-[80vh] px-4 py-12">
         
-        {/* Reduced top padding here since flex-col centers it */}
+        {/* Heading + paragraph */}
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="mb-2 text-[2rem] md:text-[2.5rem] font-semibold text-white leading-tight text-center">
-            Total Health Care<br />Solutions
+          <h2 className="mb-2 text-2xl md:text-[2.5rem] font-semibold text-white leading-tight text-center">
+            Total Health Care
+            <br />Solutions
           </h2>
-          {/* Reduced mb-8 to mb-6 to tighten space */}
-          <p className="mb-6 text-base text-white/80 max-w-2xl text-center leading-snug">
+          <p className="mb-6 text-sm md:text-base text-white/80 max-w-2xl text-center leading-snug">
             Salmon Medic offers Endoscopy, Surgical, Orthopedic, Academic & Innovative, Laboratory and IVF solutions with procurement, installation, training and after-sales support.
           </p>
         </div>
@@ -63,10 +61,9 @@ function ThirdSection() {
           >
             {cards.map((card, idx) => (
               <SwiperSlide key={idx} className="pb-8 pt-4"> 
-              {/* Added pt/pb to slide to allow shadow to show without cutting off */}
+                {/* Added pt/pb to slide to allow shadow to show without cutting off */}
                 <div className="flex flex-col justify-end bg-white/90 rounded-2xl shadow-lg border-12 border-white p-0 mx-auto
                   min-h-[300px] h-full max-w-xs transition-transform duration-300 hover:scale-105">
-                  {/* Reduced min-h from 340px to 300px to fit 80vh better */}
                   
                   <div className="relative w-full h-full rounded-xl overflow-hidden flex-1">
                     <Image
@@ -88,7 +85,6 @@ function ThirdSection() {
             ))}
           </Swiper>
           
-          {/* Adjusted margin top */}
           <div className="flex justify-center mt-4">
             <button className="px-8 py-3 cursor-pointer rounded-lg bg-secondary text-white font-semibold shadow-lg hover:bg-primary-dark transition hover:-translate-y-0.5">
               Know More
