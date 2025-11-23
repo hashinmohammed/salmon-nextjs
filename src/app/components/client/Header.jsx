@@ -91,17 +91,15 @@ function Header() {
         >
           <div className="flex justify-between items-center">
             {/* Left: Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center w-full md:w-auto justify-start md:justify-start">
               <a href="#" className="flex items-center gap-3">
                 <Image
                   src="/images/logo.png"
                   alt="MedService logo"
-                  width={effectiveScrolled ? 120 : 220}
-                  height={effectiveScrolled ? 48 : 88}
-                  className={`object-contain transition-all duration-200 h-10
-                    ${effectiveScrolled
-                      ? 'md:h-11 md:w-[124px]'
-                      : 'md:h-28 md:w-[172px]'}
+                  width={120}
+                  height={48}
+                  className={`object-contain transition-all duration-200 h-10 w-[120px] 
+                    md:${effectiveScrolled ? 'h-11 w-[124px]' : 'h-28 w-[172px]'}
                   `}
                   priority
                 />
