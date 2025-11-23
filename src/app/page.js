@@ -8,10 +8,14 @@ import SixthSection from "./components/server/SixthSection";
 import SeventhSection from "./components/server/SeventhSection";
 import EighthSection from './components/server/EighthSection';
 import NinthSection from './components/server/NinthSection';
+import FAQ from "./components/client/FAQ";
+import Header from './components/client/Header';
+import Footer from './components/client/Footer';
 
 export default function Home() {
   return (
     <>
+      <Header/>
       <Hero />
       <SecondSection />
       <ThirdSection />
@@ -20,7 +24,9 @@ export default function Home() {
       <SixthSection />
       <SeventhSection />
       <EighthSection />
-      <NinthSection/>
+      <NinthSection />
+      <FAQ />
+      <Footer/>
     </>
   );
 }
