@@ -98,7 +98,12 @@ function Header() {
                   alt="MedService logo"
                   width={effectiveScrolled ? 120 : 220}
                   height={effectiveScrolled ? 48 : 88}
-                  className={`object-contain transition-all ${effectiveScrolled?'mt-0':'md:-mt-4 -ml-4 md:ml-0'}  duration-200 h-10 w-[120px] md:${effectiveScrolled ? 'h-11 w-[124px]' : 'h-28 w-[172px]'} `}
+                  className={
+                    'object-contain transition-all duration-200 h-10 w-[120px] ' +
+                    (effectiveScrolled
+                      ? 'md:h-11 md:w-[124px] mt-0'
+                      : 'md:h-28 md:w-[172px] md:-mt-4 ')
+                  }
                   priority
                 />
               </a>
