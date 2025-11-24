@@ -1,0 +1,9 @@
+# robots.txt for Salmon Medic
+# Allow all crawlers by default. Sitemap and Host set to production domain.
+
+User-agent: *
+Allow: /
+
+# Production sitemap and host
+Sitemap: https://salmonmedic.com/sitemap.xml
+Host: https://salmonmedic.com
