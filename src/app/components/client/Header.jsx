@@ -96,11 +96,9 @@ function Header() {
                 <Image
                   src="/images/logo.png"
                   alt="MedService logo"
-                  width={120}
-                  height={48}
-                  className={`object-contain transition-all duration-200 h-10 w-[120px] 
-                    md:${effectiveScrolled ? 'h-11 w-[124px]' : 'h-28 w-[172px]'}
-                  `}
+                  width={effectiveScrolled ? 120 : 220}
+                  height={effectiveScrolled ? 48 : 88}
+                  className={`object-contain transition-all ${effectiveScrolled?'mt-0':'md:-mt-4 -ml-4 md:ml-0'}  duration-200 h-10 w-[120px] md:${effectiveScrolled ? 'h-11 w-[124px]' : 'h-28 w-[172px]'} `}
                   priority
                 />
               </a>
@@ -248,7 +246,7 @@ function Header() {
       </header>
       {/* Mobile bottom navigation (md and below) - always show below md */}
       <nav
-        className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 shadow-inner md:hidden flex items-center justify-around h-16 w-full px-4"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 shadow-inner md:hidden flex items-center justify-around h-16 w-full px-4 pb-[env(safe-area-inset-bottom)]"
         aria-label="Mobile navigation"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
