@@ -48,7 +48,7 @@ function ThirdSection() {
               spaceBetween={24}
               slidesPerView={2}
               breakpoints={{
-                640: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
                 1024: { slidesPerView: 3 },
                 1280: { slidesPerView: 5 },
               }}
