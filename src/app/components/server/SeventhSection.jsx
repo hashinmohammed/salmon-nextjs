@@ -1,10 +1,13 @@
 import React from "react";
+import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import whatsappMessages from "../../data/messagedata";
 import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import ladyWithAnimalImage from "@/../public/images/lady-with-animal.png";
 import tealBg from "@/../public/images/teal-bg.png";
 
 function SeventhSection() {
+    const redirectToWhatsapp = useWhatsappRedirect();
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat"
@@ -67,7 +70,7 @@ function SeventhSection() {
                 safety, and compassion in every treatment.
               </p>
               <div className="flex justify-center lg:justify-start">
-                <CommonButton color="secondary">
+                <CommonButton color="secondary" onClick={() => redirectToWhatsapp(whatsappMessages.seventhSection)}>
                   Contact Us
                 </CommonButton>
               </div>

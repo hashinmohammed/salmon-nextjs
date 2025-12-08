@@ -1,8 +1,11 @@
 import React from "react";
+import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import whatsappMessages from "../../data/messagedata";
 import CommonButton from "../client/common/CommonButton";
 import academyBg from "@/../public/images/academy-bg.png";
 
 function SixthSection() {
+    const redirectToWhatsapp = useWhatsappRedirect();
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat overflow-hidden h-[70vh] md:h-[90vh]"
@@ -31,7 +34,7 @@ function SixthSection() {
             </p>
             
             <div className="mt-2">
-              <CommonButton color="primary">
+              <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.sixthSection)}>
                 Explore
               </CommonButton>
             </div>

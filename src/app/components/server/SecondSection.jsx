@@ -1,10 +1,13 @@
 import React from "react";
 import CommonButton from "@/app/components/client/common/CommonButton";
+import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import whatsappMessages from "../../data/messagedata";
 import Image from "next/image";
 import heroImage from "@/../public/images/pic-1.png";
 import firstBg from "@/../public/images/first-bg.png";
 
 function SecondSection() {
+    const redirectToWhatsapp = useWhatsappRedirect();
   return (
     <div
       className="relative w-full bg-cover bg-bottom bg-no-repeat"
@@ -59,7 +62,7 @@ function SecondSection() {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <CommonButton color="primary">
+                <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.fourthSection)}>
                   Connect Us
                 </CommonButton>
               </div>

@@ -2,6 +2,8 @@
 
 import React from "react";
 import CommonButton from "@/app/components/client/common/CommonButton";
+import useWhatsappRedirect from "@/app/hooks/useWhatsappRedirect";
+import whatsappMessages from "@/app/data/messagedata";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -20,6 +22,7 @@ const cards = [
 ];
 
 function ThirdSection() {
+    const redirectToWhatsapp = useWhatsappRedirect();
   return (
     <>
       <div
@@ -91,7 +94,7 @@ function ThirdSection() {
               ))}
             </Swiper>
             <div className="flex justify-center mt-4">
-              <CommonButton color="secondary">
+              <CommonButton color="secondary" onClick={() => redirectToWhatsapp(whatsappMessages.header)}>
                 Know More
               </CommonButton>
             </div>

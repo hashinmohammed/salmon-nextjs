@@ -3,8 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { House, PackageSearch } from "lucide-react";
 import CommonButton from "./common/CommonButton";
+import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import whatsappMessages from "../../data/messagedata";
 
 function Header() {
+    const redirectToWhatsapp = useWhatsappRedirect();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const effectiveScrolled = scrolled;
@@ -126,7 +129,12 @@ function Header() {
                 >
                   Products
                 </a>
-                <CommonButton color="secondary" className="px-4 py-2 rounded font-medium shadow transition-colors duration-200 hover:bg-secondary/80 no-underline hover:no-underline" style={{ backgroundColor: '#F95B1C' }}>
+                <CommonButton
+                  color="secondary"
+                  className="px-4 py-2 rounded font-medium shadow transition-colors duration-200 hover:bg-secondary/80 no-underline hover:no-underline"
+                  style={{ backgroundColor: '#F95B1C' }}
+                  onClick={() => redirectToWhatsapp(whatsappMessages.header)}
+                >
                   Contact
                 </CommonButton>
                   </div>

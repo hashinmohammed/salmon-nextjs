@@ -1,10 +1,13 @@
 import React from "react";
+import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import whatsappMessages from "../../data/messagedata";
 import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import doctorsImage from "@/../public/images/three-doctors.png";
 import whiteBg from "@/../public/images/white-bg.png";
 
 function FourthSection() {
+    const redirectToWhatsapp = useWhatsappRedirect();
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat"
@@ -56,7 +59,7 @@ function FourthSection() {
                 patient care through the latest technology and trusted service.
               </p>
 
-              <CommonButton color="primary">
+              <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.fourthSection)}>
                 Connect Us
               </CommonButton>
             </div>

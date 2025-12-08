@@ -1,9 +1,12 @@
 
 import React from "react";
+import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import whatsappMessages from "../../data/messagedata";
 import CommonButton from "../client/common/CommonButton";
 import microBg from "@/../public/images/micro-bg.png";
 
 function NinthSection() {
+  const redirectToWhatsapp = useWhatsappRedirect();
 
   return (
     <div
@@ -25,7 +28,7 @@ function NinthSection() {
               Salmon Medical Solutions delivers precision and reliability for critical scientific and industrial applications. We provide state-of-the-art microbiology equipment and comprehensive industrial solutions, ensuring laboratories and manufacturing facilities are equipped with the technology needed for superior quality control and operational efficiency.
             </p>
             <div className="mt-2 flex justify-center w-full">
-              <CommonButton color="primary">
+              <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.ninthSection)}>
                 Explore
               </CommonButton>
             </div>
