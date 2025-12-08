@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { House, PackageSearch } from "lucide-react";
+import CommonButton from "./common/CommonButton";
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -125,12 +126,9 @@ function Header() {
                 >
                   Products
                 </a>
-                <button
-                  href="#contact"
-                    className="px-4 py-2 rounded bg-secondary text-white font-medium shadow transition-colors duration-200 hover:cursor-pointer hover:bg-secondary/80 no-underline hover:no-underline"
-                >
+                <CommonButton color="secondary" className="px-4 py-2 rounded font-medium shadow transition-colors duration-200 hover:bg-secondary/80 no-underline hover:no-underline" style={{ backgroundColor: '#F95B1C' }}>
                   Contact
-                </button>
+                </CommonButton>
                   </div>
               </nav>
 

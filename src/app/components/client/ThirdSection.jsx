@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import CommonButton from "@/app/components/client/common/CommonButton";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -90,9 +91,9 @@ function ThirdSection() {
               ))}
             </Swiper>
             <div className="flex justify-center mt-4">
-              <button className="px-8 py-3 cursor-pointer rounded-lg bg-secondary text-white font-semibold shadow-lg hover:bg-primary-dark transition hover:-translate-y-0.5">
+              <CommonButton color="secondary">
                 Know More
-              </button>
+              </CommonButton>
             </div>
           </div>
         </section>

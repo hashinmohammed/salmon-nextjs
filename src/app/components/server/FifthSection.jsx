@@ -1,4 +1,5 @@
 import React from "react";
+import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import labGirlImage from "@/../public/images/lab-girl.png";
 import tealBg from "@/../public/images/teal-bg.png";
@@ -48,9 +49,9 @@ function FifthSection() {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <button className="px-8 py-3 rounded-lg bg-secondary text-white font-semibold shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all transform hover:-translate-y-0.5 duration-200">
+                <CommonButton color="secondary">
                   Contact Us
-                </button>
+                </CommonButton>
               </div>
             </div>
 

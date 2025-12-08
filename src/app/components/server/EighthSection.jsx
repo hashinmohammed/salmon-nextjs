@@ -1,4 +1,5 @@
 import React from "react";
+import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import securityImage from "@/../public/images/security.png";
 import whiteBg from "@/../public/images/white-bg.png";
@@ -33,9 +34,9 @@ function EighthSection() {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <button className="px-8 py-3 rounded-lg bg-primary text-white font-semibold shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all transform hover:-translate-y-0.5 duration-200">
+                <CommonButton color="primary">
                   Connect Us
-                </button>
+                </CommonButton>
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import CommonButton from "@/app/components/client/common/CommonButton";
 import Image from "next/image";
 import heroImage from "@/../public/images/pic-1.png";
 import firstBg from "@/../public/images/first-bg.png";
@@ -58,9 +59,9 @@ function SecondSection() {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <button className="px-8 py-3 rounded-lg bg-primary text-white font-semibold shadow-lg hover:bg-primary-dark transition-all hover:-translate-y-0.5 duration-200">
+                <CommonButton color="primary">
                   Connect Us
-                </button>
+                </CommonButton>
               </div>
             </div>
 

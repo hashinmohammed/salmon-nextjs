@@ -1,5 +1,6 @@
 
 import React from "react";
+import CommonButton from "../client/common/CommonButton";
 import microBg from "@/../public/images/micro-bg.png";
 
 function NinthSection() {
@@ -24,9 +25,9 @@ function NinthSection() {
               Salmon Medical Solutions delivers precision and reliability for critical scientific and industrial applications. We provide state-of-the-art microbiology equipment and comprehensive industrial solutions, ensuring laboratories and manufacturing facilities are equipped with the technology needed for superior quality control and operational efficiency.
             </p>
             <div className="mt-2 flex justify-center w-full">
-              <button className="px-8 py-3 cursor-pointer rounded-lg bg-primary text-white font-semibold shadow-lg hover:bg-primary-dark transition hover:-translate-y-0.5 transform duration-200">
+              <CommonButton color="primary">
                 Explore
-              </button>
+              </CommonButton>
             </div>
           </div>
         </div>

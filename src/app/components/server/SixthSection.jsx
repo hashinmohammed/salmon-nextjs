@@ -1,4 +1,5 @@
 import React from "react";
+import CommonButton from "../client/common/CommonButton";
 import academyBg from "@/../public/images/academy-bg.png";
 
 function SixthSection() {
@@ -30,9 +31,9 @@ function SixthSection() {
             </p>
             
             <div className="mt-2">
-              <button className="px-8 py-3 cursor-pointer rounded-lg bg-primary text-white font-semibold shadow-lg hover:bg-primary-dark transition hover:-translate-y-0.5 transform duration-200">
+              <CommonButton color="primary">
                 Explore
-              </button>
+              </CommonButton>
             </div>
           </div>
         </div>
