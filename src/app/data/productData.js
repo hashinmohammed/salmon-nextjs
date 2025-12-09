@@ -6,16 +6,16 @@ const DATA = [
       {
         name: "Patient Monitoring Systems",
         products: [
-          { id: 1, name: "ECG Monitor" },
-          { id: 2, name: "Blood Pressure Monitor" },
-          { id: 3, name: "Pulse Oximeter" },
+          { id: 1, name: "ECG Monitor", imageUrl: "https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?auto=format&fit=crop&w=400&q=80" },
+          { id: 2, name: "Blood Pressure Monitor", imageUrl: "https://images.unsplash.com/photo-1588776814546-ec7e8e7b6b6e?auto=format&fit=crop&w=400&q=80" },
+          { id: 3, name: "Pulse Oximeter", imageUrl: "https://images.unsplash.com/photo-1588776814546-ec7e8e7b6b6e?auto=format&fit=crop&w=400&q=80" },
         ],
       },
       {
         name: "Surgical Instruments",
         products: [
-          { id: 11, name: "Scalpels" },
-          { id: 12, name: "Forceps" },
+          { id: 11, name: "Scalpels", imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" },
+          { id: 12, name: "Forceps", imageUrl: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" },
           { id: 13, name: "Retractors" },
           { id: 14, name: "Surgical Scissors" },
         ],
@@ -23,7 +23,7 @@ const DATA = [
       {
         name: "Diagnostic Equipment",
         products: [
-          { id: 15, name: "Ultrasound machines" },
+          { id: 15, name: "Ultrasound machines", imageUrl: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" },
           { id: 16, name: "X-ray systems" },
           { id: 17, name: "MRI scanners" },
         ],
@@ -451,32 +451,32 @@ const DATA = [
       {
         name: "Laboratory Equipment",
         products: [
-          { id: 244, name: "Microscopes" },
-          { id: 245, name: "Centrifuges" },
-          { id: 246, name: "Spectrophotometers" },
-          { id: 247, name: "Incubators" },
+          { id: 244, name: "Microscopes", imageUrl: "" },
+          { id: 245, name: "Centrifuges", imageUrl: "" },
+          { id: 246, name: "Spectrophotometers", imageUrl: "" },
+          { id: 247, name: "Incubators", imageUrl: "" },
         ],
       },
       {
         name: "Lab Supplies/Glass Wares",
-        products: [{ id: 9, name: "Laboratory Glassware Set" }],
+        products: [{ id: 9, name: "Laboratory Glassware Set", imageUrl: "" }],
       },
       {
         name: "Safety Equipment",
         products: [
-          { id: 10, name: "Safety Goggles" },
-          { id: 248, name: "Lab Coats" },
-          { id: 249, name: "Fire Extinguishers" },
-          { id: 250, name: "First Aid Kits" },
+          { id: 10, name: "Safety Goggles", imageUrl: "" },
+          { id: 248, name: "Lab Coats", imageUrl: "" },
+          { id: 249, name: "Fire Extinguishers", imageUrl: "" },
+          { id: 250, name: "First Aid Kits", imageUrl: "" },
         ],
       },
       {
         name: "Consumables",
         products: [
-          { id: 251, name: "Reagents" },
-          { id: 252, name: "Chemicals" },
-          { id: 253, name: "Lab Notebooks" },
-          { id: 254, name: "Disposable Gloves" },
+          { id: 251, name: "Reagents", imageUrl: "" },
+          { id: 252, name: "Chemicals", imageUrl: "" },
+          { id: 253, name: "Lab Notebooks", imageUrl: "" },
+          { id: 254, name: "Disposable Gloves", imageUrl: "" },
         ],
       },
     ],

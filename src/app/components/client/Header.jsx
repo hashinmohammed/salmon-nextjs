@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { House, PackageSearch } from "lucide-react";
 import CommonButton from "./common/CommonButton";
+import Link from "next/link";
 import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
 import whatsappMessages from "../../data/messagedata";
 
@@ -123,12 +124,13 @@ function Header() {
                 >
                   Home
                 </a>
-                <a
-                  href="#"
+                <Link
+                  href="/products"
                   className={`font-semibold ${effectiveScrolled ? 'text-primary hover:text-primary' : 'text-white hover:text-white/90'}`}
+                  scroll={true}
                 >
                   Products
-                </a>
+                </Link>
                 <CommonButton
                   color="secondary"
                   className="px-4 py-2 rounded font-medium shadow transition-colors duration-200 hover:bg-secondary/80 no-underline hover:no-underline"
