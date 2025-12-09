@@ -13,6 +13,7 @@ import EighthSection from "./components/server/EighthSection";
 import NinthSection from "./components/server/NinthSection";
 import FAQ from "./components/client/FAQ";
 import Footer from "./components/client/Footer";
+import OurPartners from './components/client/OurPartners';
 
 export default function HomeClientWrapper() {
   const [loading, setLoading] = useState(true);
@@ -40,6 +41,7 @@ export default function HomeClientWrapper() {
         <SecondSection />
         <ThirdSection />
         <FourthSection />
+        <OurPartners/>
         <FifthSection />
         <SixthSection />
         <SeventhSection />
