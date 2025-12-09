@@ -14,6 +14,7 @@ const ICONS = {
 
 import Image from "next/image";
 import debounce from "../../utils/debounce";
+import WhatsAppStickyButton from "../components/client/common/WhatsAppStickyButton";
 
 const ProductCard = React.memo(function ProductCard({ name, sub, imageUrl }) {
   const hasImage = typeof imageUrl === "string" && imageUrl.trim() !== "";
@@ -229,6 +230,7 @@ export default function Products() {
           </div>
         </section>
       </div>
+      <WhatsAppStickyButton />
     </div>
   );
 }

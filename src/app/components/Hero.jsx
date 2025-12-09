@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import HeroPanel from "./HeroPanel"; 
 import PlayPauseIcon from "./PlayPauseIcon"; 
+import WhatsAppStickyButton from "./client/common/WhatsAppStickyButton";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -214,6 +215,9 @@ export default function Hero() {
 
       {/* Floating Info Panel */}
       <HeroPanel />
+
+      {/* Sticky WhatsApp Button */}
+      <WhatsAppStickyButton />
     </section>
   );
 }
