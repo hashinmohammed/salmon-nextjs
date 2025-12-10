@@ -239,21 +239,20 @@ function Header() {
           </div>
 
           <nav className="px-4 py-6 space-y-2 header-nav">
-            <a
-              href="#"
+            <Link
+              href="/"
               onClick={() => setMobileOpen(false)}
               className="block px-2 py-2 text-gray-700 rounded hover:bg-gray-50"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/products"
               onClick={() => setMobileOpen(false)}
               className="block px-2 py-2 text-gray-700 rounded hover:bg-gray-50"
             >
               Products
-            </a>
-
+            </Link>
           </nav>
         </aside>
       </header>
@@ -263,22 +262,21 @@ function Header() {
         aria-label="Mobile navigation"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <a
-          href="#"
+        <Link
+          href="/"
           className="flex flex-col items-center justify-center text-sm text-gray-700 w-full max-w-full"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <House className="h-6 w-6 mb-0.5" />
           <span className="text-xs">Home</span>
-        </a>
+        </Link>
 
-        <a
-          href="#"
+        <Link
+          href="/products"
           className="flex flex-col items-center justify-center text-sm text-gray-700 w-full max-w-full"
         >
           <PackageSearch className="h-6 w-6 mb-0.5" />
           <span className="text-xs">Products</span>
-        </a>
+        </Link>
       </nav>
     </>
   );

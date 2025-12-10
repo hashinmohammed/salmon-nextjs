@@ -25,7 +25,7 @@ const ProductCard = React.memo(function ProductCard({ name, sub, imageUrl }) {
         : "rounded-lg border border-[#dfddddad] bg-white shadow-sm hover:shadow-md transition p-4 flex flex-col items-center group"
     }>
       {hasImage && (
-        <div className="w-full aspect-[4/3] bg-white flex items-center justify-center">
+        <div className="w-full aspect-4/3 bg-white flex items-center justify-center">
           <Image
             src={imageUrl}
             alt={name}
@@ -89,7 +89,7 @@ export default function Products() {
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-[#f7fafd] to-[#eaf3fa] pt-6 pb-8 px-2 sm:px-4">
-      {/* Top bar: Back button left, filters/search right */}
+      {/* Top bar: Back button left */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-0 sm:px-4 mb-6 w-full">
         <div className="flex items-center w-full sm:w-auto mb-2 sm:mb-0">
           <Link
@@ -101,7 +101,8 @@ export default function Products() {
             Back to Home
           </Link>
         </div>
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-stretch sm:items-center w-full sm:w-auto">
+        {/* Desktop filters/search */}
+        <div className="hidden sm:flex flex-col sm:flex-row gap-2 sm:gap-4 items-stretch sm:items-center w-full sm:w-auto">
           {/* Sort icons */}
           <button
             className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition cursor-pointer ${sort === 'name-asc' ? 'bg-secondary text-white' : 'bg-white text-secondary hover:bg-secondary'} font-semibold`}
@@ -196,6 +197,47 @@ export default function Products() {
               ))}
             </ul>
           )}
+
+          {/* Mobile filters/search below dropdown */}
+          <div className="flex flex-col gap-2 mt-4 sm:hidden">
+            <button
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition cursor-pointer ${sort === 'name-asc' ? 'bg-secondary text-white' : 'bg-white text-secondary hover:bg-secondary'} font-semibold`}
+              onClick={() => setSort('name-asc')}
+              aria-pressed={sort === 'name-asc'}
+            >
+              <SortAsc size={20} />
+              A-Z
+            </button>
+            <button
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition cursor-pointer ${sort === 'name-desc' ? 'bg-secondary text-white' : 'bg-white text-secondary hover:bg-secondary'} font-semibold`}
+              onClick={() => setSort('name-desc')}
+              aria-pressed={sort === 'name-desc'}
+            >
+              <SortDesc size={20} />
+              Z-A
+            </button>
+            <input
+              type="text"
+              placeholder="Search products..."
+              defaultValue={search}
+              onChange={e => debouncedSetSearch(e.target.value)}
+              className="border border-gray-300 rounded-lg px-3 py-2 w-full bg-white focus:outline-none focus:ring-2 focus:ring-primary transition text-base"
+              ref={searchRef}
+            />
+            <button
+              type="button"
+              className="bg-gray-200 hover:bg-primary text-gray-700 font-semibold px-6 py-2 rounded-lg transition whitespace-nowrap cursor-pointer"
+              onClick={() => {
+                setSearch("");
+                setFilter("All");
+                setSort("");
+                setActiveSub("All");
+                if (searchRef.current) searchRef.current.value = "";
+              }}
+            >
+              Reset
+            </button>
+          </div>
         </div>
         {/* Subcategories sidebar (desktop) */}
         <aside className="hidden md:block col-span-1 bg-primary rounded-xl p-3 sm:p-4 md:p-6 text-white shadow-md mb-4 md:mb-0">
