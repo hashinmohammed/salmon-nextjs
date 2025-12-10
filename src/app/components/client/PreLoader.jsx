@@ -1,10 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 
+
 const Preloader = () => {
+  const [mounted, setMounted] = useState(false);
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+    const timer = setTimeout(() => setShow(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!mounted || !show) return null;
+
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden">
       {/* Background image using Next.js Image */}

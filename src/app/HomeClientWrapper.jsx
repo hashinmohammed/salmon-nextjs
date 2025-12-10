@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Preloader from "./components/client/PreLoader";
 import Header from "./components/client/Header";
-import Hero from "./components/HeroClientWrapper";
+import Hero from "./components/Hero";
 import SecondSection from "./components/server/SecondSection";
 import ThirdSection from "./components/client/ThirdSection";
 import FourthSection from "./components/server/FourthSection";
@@ -16,8 +16,8 @@ import FAQ from "./components/client/FAQ";
 import Footer from "./components/client/Footer";
 import OurPartners from './components/client/OurPartners';
 
-export default function HomeClientWrapper() {
 
+export default function HomeClientWrapper() {
   const [showLoader, setShowLoader] = useState(() => {
     if (typeof window !== "undefined") {
       return !sessionStorage.getItem("hasVisitedHome");
@@ -28,10 +28,14 @@ export default function HomeClientWrapper() {
   useEffect(() => {
     if (showLoader) {
       sessionStorage.setItem("hasVisitedHome", "true");
-      const timer = setTimeout(() => setShowLoader(false), 2000);
+      const timer = setTimeout(() => setShowLoader(false), 5000);
       return () => clearTimeout(timer);
     }
   }, [showLoader]);
+
+  const handleHeroLoaded = () => {
+    setShowLoader(false);
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -40,7 +44,7 @@ export default function HomeClientWrapper() {
       ) : (
         <>
           <Header />
-          <Hero />
+          <Hero onLoaded={handleHeroLoaded} />
           <SecondSection />
           <ThirdSection />
           <FourthSection />

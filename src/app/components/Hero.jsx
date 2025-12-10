@@ -52,12 +52,13 @@ const slides = [
   },
 ];
 
-export default function Hero() {
+export default function Hero({ onLoaded }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
   const swiperRef = useRef(null);
   const videoRefs = useRef([]);
+  const [heroLoaded, setHeroLoaded] = useState(false);
 
   const handleSlideChange = (sw) => {
     const idx = sw.realIndex ?? sw.activeIndex;
@@ -109,6 +110,14 @@ export default function Hero() {
     setPlaying(!playing);
   };
 
+  // Call onLoaded when the first video is loaded and ready
+  const handleVideoLoaded = () => {
+    if (!heroLoaded) {
+      setHeroLoaded(true);
+      if (onLoaded) onLoaded();
+    }
+  };
+
   return (
     <section
       className="relative"
@@ -123,7 +132,6 @@ export default function Hero() {
         autoplay={{ delay: 6000, disableOnInteraction: false }}
         onSwiper={(sw) => (swiperRef.current = sw)}
         onSlideChange={handleSlideChange}
-        // FIX: Invert 'p' (which counts down) to create a progress bar that fills up (0 -> 1)
         onAutoplayTimeLeft={(sw, time, p) => setProgress(1 - p)}
         loop
         className="hero-swiper"
@@ -149,6 +157,7 @@ export default function Hero() {
                   muted
                   playsInline
                   loop
+                  onLoadedData={idx === 0 ? handleVideoLoaded : undefined}
                 />
               </div>
 
