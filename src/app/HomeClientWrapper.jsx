@@ -1,5 +1,6 @@
+
 "use client";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Preloader from "./components/client/PreLoader";
 import Header from "./components/client/Header";
 import Hero from "./components/HeroClientWrapper";
@@ -16,46 +17,42 @@ import Footer from "./components/client/Footer";
 import OurPartners from './components/client/OurPartners';
 
 export default function HomeClientWrapper() {
-  const [loading, setLoading] = useState(true);
+
+  const [showLoader, setShowLoader] = useState(() => {
+    if (typeof window !== "undefined") {
+      return !sessionStorage.getItem("hasVisitedHome");
+    }
+    return false;
+  });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (showLoader) {
+      sessionStorage.setItem("hasVisitedHome", "true");
+      const timer = setTimeout(() => setShowLoader(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showLoader]);
 
   return (
     <div className="relative min-h-screen">
-      {/* Main content is ALWAYS in the DOM */}
-      <div
-        className={
-          loading
-            ? "opacity-0"
-            : "opacity-100 transition-opacity duration-500"
-        }
-      >
-        <Header />
-        <Hero />
-        <SecondSection />
-        <ThirdSection />
-        <FourthSection />
-        <OurPartners/>
-        <FifthSection />
-        <SixthSection />
-        <SeventhSection />
-        <EighthSection />
-        <NinthSection />
-        <FAQ />
-        <Footer />
-      </div>
-
-      {/* Preloader overlay – only visual, no layout change */}
-      {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-          <Preloader />
-        </div>
+      {showLoader ? (
+        <Preloader />
+      ) : (
+        <>
+          <Header />
+          <Hero />
+          <SecondSection />
+          <ThirdSection />
+          <FourthSection />
+          <OurPartners />
+          <FifthSection />
+          <SixthSection />
+          <SeventhSection />
+          <EighthSection />
+          <NinthSection />
+          <FAQ />
+          <Footer />
+        </>
       )}
     </div>
   );

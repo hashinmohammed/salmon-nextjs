@@ -144,7 +144,7 @@ export default function Products() {
         </div>
       </div>
       {/* Category Tabs */}
-      <div className="flex flex-col md:flex-row gap-2 md:gap-6 mb-6 px-0 sm:px-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6 mb-6 px-0 sm:px-4">
         {DATA?.map((cat) => {
           const Icon = ICONS[cat.key];
           const isActive = cat.key === activeCat;
@@ -152,7 +152,7 @@ export default function Products() {
             <button
               key={cat.key}
               onClick={() => setActiveCat(cat.key)}
-              className={`group flex-1 flex flex-col items-center justify-center p-3 sm:p-4 md:p-6 rounded-xl shadow-md min-h-[72px] sm:min-h-[100px] md:min-h-[120px] transition-colors duration-150 focus:outline-none border-2 ${isActive ? 'bg-primary text-white border-primary' : 'bg-secondary text-white border-white hover:bg-primary hover:text-white hover:border-primary'}`}
+              className={`group flex flex-col items-center justify-center p-3 sm:p-4 md:p-6 rounded-xl shadow-md min-h-[72px] sm:min-h-[100px] md:min-h-[120px] transition-colors duration-150 focus:outline-none border-2 ${isActive ? 'bg-primary text-white border-primary' : 'bg-secondary text-white border-white hover:bg-primary hover:text-white hover:border-primary'}`}
               style={{ cursor: 'pointer' }}
             >
               <div className="mb-1 sm:mb-2">

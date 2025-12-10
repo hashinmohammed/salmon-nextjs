@@ -1,13 +1,12 @@
 import React from "react";
-import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import WhatsappButton from "../client/common/ConnectUsButton";
 import whatsappMessages from "../../data/messagedata";
-import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import labGirlImage from "@/../public/images/lab-girl.png";
 import tealBg from "@/../public/images/teal-bg.png";
 
 function FifthSection() {
-    const redirectToWhatsapp = useWhatsappRedirect();
+    // Removed client logic; now using ContactUsButton client component
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat"
@@ -52,9 +51,7 @@ function FifthSection() {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <CommonButton color="secondary" onClick={() => redirectToWhatsapp(whatsappMessages.fifthSection)}>
-                  Contact Us
-                </CommonButton>
+                <WhatsappButton color="secondary" message={whatsappMessages.fifthSection}>Contact Us</WhatsappButton>
               </div>
             </div>
 

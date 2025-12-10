@@ -1,13 +1,12 @@
 import React from "react";
-import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import WhatsappButton from "../client/common/ConnectUsButton";
 import whatsappMessages from "../../data/messagedata";
-import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import doctorsImage from "@/../public/images/three-doctors.png";
 import whiteBg from "@/../public/images/white-bg.png";
 
 function FourthSection() {
-    const redirectToWhatsapp = useWhatsappRedirect();
+    // Removed client logic; now using ConnectUsButton client component
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat"
@@ -59,9 +58,7 @@ function FourthSection() {
                 patient care through the latest technology and trusted service.
               </p>
 
-              <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.fourthSection)}>
-                Connect Us
-              </CommonButton>
+              <WhatsappButton color="primary" message={whatsappMessages.fourthSection}>Connect Us</WhatsappButton>
             </div>
 
           </div>

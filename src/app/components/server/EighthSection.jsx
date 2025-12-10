@@ -1,13 +1,12 @@
 import React from "react";
-import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import WhatsappButton from "../client/common/ConnectUsButton";
 import whatsappMessages from "../../data/messagedata";
-import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import securityImage from "@/../public/images/security.png";
 import whiteBg from "@/../public/images/white-bg.png";
 
 function EighthSection() {
-    const redirectToWhatsapp = useWhatsappRedirect();
+    // Removed client logic; now using WhatsappButton client component
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat"
@@ -37,9 +36,7 @@ function EighthSection() {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.eighthSection)}>
-                  Connect Us
-                </CommonButton>
+                <WhatsappButton color="primary" message={whatsappMessages.eighthSection}>Connect Us</WhatsappButton>
               </div>
             </div>
 

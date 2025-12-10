@@ -1,11 +1,10 @@
 import React from "react";
-import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import WhatsappButton from "../client/common/ConnectUsButton";
 import whatsappMessages from "../../data/messagedata";
-import CommonButton from "../client/common/CommonButton";
 import academyBg from "@/../public/images/academy-bg.png";
 
 function SixthSection() {
-    const redirectToWhatsapp = useWhatsappRedirect();
+    // Removed client logic; now using ExploreButton client component
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat overflow-hidden h-[70vh] md:h-[90vh]"
@@ -34,9 +33,7 @@ function SixthSection() {
             </p>
             
             <div className="mt-2">
-              <CommonButton color="primary" onClick={() => redirectToWhatsapp(whatsappMessages.sixthSection)}>
-                Explore
-              </CommonButton>
+              <WhatsappButton color="primary" message={whatsappMessages.sixthSection}>Explore</WhatsappButton>
             </div>
           </div>
         </div>

@@ -1,13 +1,12 @@
 import React from "react";
-import useWhatsappRedirect from "../../hooks/useWhatsappRedirect";
+import WhatsappButton from "../client/common/ConnectUsButton";
 import whatsappMessages from "../../data/messagedata";
-import CommonButton from "../client/common/CommonButton";
 import Image from "next/image";
 import ladyWithAnimalImage from "@/../public/images/lady-with-animal.png";
 import tealBg from "@/../public/images/teal-bg.png";
 
 function SeventhSection() {
-    const redirectToWhatsapp = useWhatsappRedirect();
+    // Removed client logic; now using WhatsappButton client component
   return (
     <div
       className="relative w-full bg-cover bg-top bg-no-repeat"
@@ -70,9 +69,7 @@ function SeventhSection() {
                 safety, and compassion in every treatment.
               </p>
               <div className="flex justify-center lg:justify-start">
-                <CommonButton color="secondary" onClick={() => redirectToWhatsapp(whatsappMessages.seventhSection)}>
-                  Contact Us
-                </CommonButton>
+                <WhatsappButton color="secondary" message={whatsappMessages.seventhSection}>Contact Us</WhatsappButton>
               </div>
             </div>
 
