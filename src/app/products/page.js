@@ -91,7 +91,7 @@ export default function Products() {
     <div className="w-full min-h-screen bg-gradient-to-br from-[#f7fafd] to-[#eaf3fa] pt-6 pb-8 px-2 sm:px-4">
       {/* Top bar: Back button left */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-0 sm:px-4 mb-6 w-full">
-        <div className="flex items-center w-full sm:w-auto mb-2 sm:mb-0">
+        <div className="hidden sm:flex items-center w-full sm:w-auto mb-2 sm:mb-0">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-primary font-semibold text-base border border-primary px-4 py-2 rounded-lg bg-white hover:bg-primary transition-colors duration-150 shadow-sm"
@@ -216,17 +216,27 @@ export default function Products() {
               <SortDesc size={20} />
               Z-A
             </button>
-            <input
-              type="text"
-              placeholder="Search products..."
-              defaultValue={search}
-              onChange={e => debouncedSetSearch(e.target.value)}
-              className="border border-gray-300 rounded-lg px-3 py-2 w-full bg-white focus:outline-none focus:ring-2 focus:ring-primary transition text-base"
-              ref={searchRef}
-            />
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="Search products..."
+                defaultValue={search}
+                className="border border-gray-300 rounded-lg px-3 py-2 w-full bg-white focus:outline-none focus:ring-2 focus:ring-primary transition text-base"
+                ref={searchRef}
+              />
+              <button
+                type="button"
+                className="bg-primary text-white font-semibold px-4 py-2 rounded-lg transition whitespace-nowrap cursor-pointer"
+                onClick={() => {
+                  if (searchRef.current) debouncedSetSearch(searchRef.current.value);
+                }}
+              >
+                Search
+              </button>
+            </div>
             <button
               type="button"
-              className="bg-gray-200 hover:bg-primary text-gray-700 font-semibold px-6 py-2 rounded-lg transition whitespace-nowrap cursor-pointer"
+              className="bg-gray-200 hover:bg-primary text-gray-700 font-semibold px-6 py-2 rounded-lg transition whitespace-nowrap cursor-pointer mt-2"
               onClick={() => {
                 setSearch("");
                 setFilter("All");
