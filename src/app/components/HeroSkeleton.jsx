@@ -6,7 +6,7 @@ import HeroPanel from "./HeroPanel";
 import WhatsAppStickyButton from "./client/common/WhatsAppStickyButton";
 
 const firstSlide = {
-  titleTop: "essential Equipment for Exceptional Care",
+  titleTop: "Essential Equipment for Exceptional Care",
   titleBottom: "Delivering Quality, Safety, and Efficiency to Hospitals Worldwide",
   cta: "Your partner for a healthier tomorrow",
 };
