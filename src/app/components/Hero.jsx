@@ -165,7 +165,26 @@ export default function Hero({ onLoaded }) {
               <div
                 className="absolute inset-0"
                 style={{
-                  backgroundImage: `radial-gradient(80% 60% at 50% 55%, rgba(var(--color-primary-rgb),0.02) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.6) 100%), linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(var(--color-primary-rgb),0.08) 30%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%), linear-gradient(180deg, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.55) 100%), linear-gradient(270deg, rgba(0,0,0,0.0) 40%, rgba(var(--color-primary-rgb),0.12) 100%)`,
+                  backgroundImage: `
+                    radial-gradient(80% 60% at 50% 55%, rgba(var(--color-primary-rgb),0.02) 0%, rgba(0,0,0,0.10) 45%, rgba(0,0,0,0.25) 100%),
+                    linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(var(--color-primary-rgb),0.04) 30%, rgba(0,0,0,0.02) 70%, rgba(0,0,0,0) 100%),
+                    linear-gradient(180deg, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.18) 100%),
+                    linear-gradient(270deg, rgba(0,0,0,0.0) 40%, rgba(var(--color-primary-rgb),0.06) 100%)
+                  `,
+                  backgroundBlendMode: "overlay, normal, normal, normal",
+                  backgroundRepeat: "no-repeat",
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 hidden sm:block"
+                style={{
+                  backgroundImage: `
+                    radial-gradient(80% 60% at 50% 55%, rgba(var(--color-primary-rgb),0.02) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.6) 100%),
+                    linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(var(--color-primary-rgb),0.08) 30%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%),
+                    linear-gradient(180deg, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.55) 100%),
+                    linear-gradient(270deg, rgba(0,0,0,0.0) 40%, rgba(var(--color-primary-rgb),0.12) 100%)
+                  `,
                   backgroundBlendMode: "overlay, normal, normal, normal",
                   backgroundRepeat: "no-repeat",
                 }}
