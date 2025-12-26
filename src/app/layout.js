@@ -1,6 +1,8 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MobileBottomNav from "./components/client/common/MobileBottomNav";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,6 +61,47 @@ export const metadata = {
       "medical distributors and importers in UAE"
     ]
   },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      maxSnippet: -1,
+      maxImagePreview: 'large',
+      maxVideoPreview: -1,
+    },
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  icons: [
+    { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
+    { rel: 'apple-touch-icon', url: '/images/logo.png' },
+  ],
+  manifest: '/site.webmanifest',
+  category: 'medical, healthcare, products',
+  applicationName: 'Salmon Medical Solutions',
+  creator: 'Salmon Medical Solutions',
+  publisher: 'Salmon Medical Solutions',
+  generator: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  colorScheme: 'light',
+  themeColor: '#0a2540',
+  appleWebApp: {
+    capable: true,
+    title: 'Salmon Medical Solutions',
+    statusBarStyle: 'default',
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   openGraph: {
     title: "Home | Salmon Medical Solutions",
     description:
@@ -90,6 +133,30 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // JSON-LD structured data for organization
+  const orgJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Salmon Medical Solutions',
+    url: 'https://www.salmonmedic.com/',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.salmonmedic.com/images/logo.png',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/salmonmedic/',
+      'https://www.instagram.com/salmonmedic/',
+      'https://twitter.com/salmonmedic',
+    ],
+    contactPoint: [{
+      '@type': 'ContactPoint',
+      telephone: '+971551421502',
+      contactType: 'customer service',
+      areaServed: 'AE',
+      availableLanguage: ['English', 'Arabic'],
+    }],
+  };
+
   return (
     <html lang="en">
       <head>
@@ -100,10 +167,14 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="/images/logo.png" />
         <meta property="og:url" content="https://www.salmonmedic.com/" />
         <meta property="og:type" content="website" />
+        {/* SEO: robots, viewport, theme-color, manifest, etc. handled by metadata */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script id="org-jsonld" type="application/ld+json">
+          {JSON.stringify(orgJsonLd)}
+        </Script>
         {children}
         <MobileBottomNav />
       </body>
