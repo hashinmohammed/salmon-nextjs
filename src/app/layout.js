@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MobileBottomNav from "./components/client/common/MobileBottomNav";
+import ChatBotWidget from "./components/client/common/ChatBotWidget";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -176,6 +177,7 @@ export default function RootLayout({ children }) {
           {JSON.stringify(orgJsonLd)}
         </Script>
         {children}
+        <ChatBotWidget />
         <MobileBottomNav />
       </body>
     </html>
